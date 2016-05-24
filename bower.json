@@ -1,0 +1,13 @@
+{
+  "name": "angular-project",
+  "description": "Jab to the Body Blog",
+  "version": "1.0.0",
+  "license": "Davorin Cancarevic",
+  "dependencies": {
+    "angular": "~1.3.0",
+    "angular-mocks": "~1.3.0",
+    "bootstrap": "~3.1.1",
+    "angular-route": "~1.3.0",
+    "angular-resource": "~1.3.0"
+  }
+}
