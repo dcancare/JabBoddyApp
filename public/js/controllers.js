@@ -1,7 +1,8 @@
 var jabToBodyControllers = angular.module('jabToBodyControllers', []);
 
-jabToBodyControllers.controller('MainController', ['$scope','$http', function($scope,$http){
-  $http.get('/api/posts').success(function(data) {
+jabToBodyControllers.controller('MainController', ['$scope','$http', 'Post', function($scope,$http,Post){
+  //$http.get('/api/posts').success(function(data){ // can use this or the one thats getting used below 
+  Post.get().success(function(data) {
   $scope.posts = data;
   })
 }]);
@@ -11,9 +12,10 @@ jabToBodyControllers.controller('MainController', ['$scope','$http', function($s
 //   })
 // }]);
 
-jabToBodyControllers.controller('PostDetailsController', ['$scope','$http', 'Post', function($scope,$http,Post){
-   Post.fetchDetail('1').success(function(data) {
-   $scope.post = data;
+jabToBodyControllers.controller('PostDetailsController', ['$scope','$http', '$routeParams', 'Post', function($scope,$http,$routeParams,Post){
+   var parameterPostId = $routeParams.postId;
+   Post.fetchDetail(parameterPostId).success(function(data) {
+   $scope.post = data[0];
    })
 }]);
 
@@ -23,5 +25,15 @@ jabToBodyControllers.controller('OlderPostsController', ['$scope','$http', funct
   })
 }]);
 
+jabToBodyControllers.controller('CreatePostController', ['$scope','$http', 'Post', function($scope,$http,Post){
+
+	$scope.addPost = function(){
+		$scope.myTxt = "You clicked submit!";
+			console.log($scope.postId);
+			Post.create($scope.postId).success(function(data) {
+						$scope.posts = data; // assign our new list of posts
+					});
+	}
+}]);
 
 

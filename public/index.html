@@ -63,6 +63,9 @@
                     <li>
                         <a href="contact.html">Contact</a>
                     </li>
+                     <li>
+                        <a href="#" class="page-scroll" data-toggle="modal" data-target="#createPost">Create</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -77,6 +80,44 @@
     <!-- Main Content -->
 
     <div ng-view></div>
+
+
+    <!-- Modals -->
+    <!-- Create Post Modal Start -->
+    <div id="createPost" class="modal fade" role="dialog" aria-hidden="true" data-keyboard="true" data-backdrop="static" tabindex="-1">
+    <a href="#" class="fa fa-times cls-pop" data-dismiss="modal"></a>
+     <div class="modal-dialog modal-lg clearfix">
+      <div class="modal-content pop-up">
+        <h3>About US</h3>
+        <div class="clearfix">
+           <div ng-controller="CreatePostController">
+            <form ng-submit="addPost()">  
+                postId <input type="text" ng-model="postId.text">
+                            <input type="submit">
+            </form>
+            <p>{{myTxt}}</p>
+           </div>
+
+
+         <div>
+           <p>Viva Carnaval is an annual event located in the beautiful Tampa, Florida during Labor Day weekend (September 2-4 2016). It is sponsored by Out of the Night Entertainment.</p>
+           <p>Package information will be posted soon so be sure to keep checking.</p>
+           <p>Here are some reasons to attend Viva Carnaval:</p>
+        </div>
+      </div>
+      <ul class="features">      
+        <li>Networking Opportunities</li>
+        <li>A Great Time</li>
+        <li>Community Service</li>
+        <li>Non stop Music</li>
+        <li>Sunny Beaches</li>
+        <li>Life Long Memories</li>
+      </ul>         
+     </div>
+    </div>
+   </div>
+    <!-- Create Post Modal End -->
+
 
 <!-- Footer -->
     <footer>

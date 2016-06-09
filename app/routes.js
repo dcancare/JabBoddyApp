@@ -24,11 +24,11 @@ module.exports = function (app) {
     });
     // create post and send back all post after creation
     app.post('/api/posts', function (req, res) {
-
+         console.log('here');
         // create a post, information comes from AJAX request from Angular
         Post.create({
-            text: req.body.text,
-            done: false
+            postId: req.body.text,
+            headingOne: 'heading'
         }, function (err, post) {
             if (err)
                 res.send(err);
@@ -53,16 +53,11 @@ module.exports = function (app) {
 
     // get post detail
     app.get('/api/detail/:postId', function (req, res) {
-        console.log("right here")
         // use mongoose to get posts detail in the database
-        Detail.find(function (err, detail) {
-                        console.log(req.params.postId)
-
+        Detail.find({postId:req.params.postId}, function (err, results) { //for mongoose the first arg is always the error and second is the resultset..if there is an error then rs is null and vice versa
             if (err)
                 res.send(err);
-
-            console.log(detail)
-            res.json(detail); // return posts detail in JSON format
+            res.json(results); // return posts detail in JSON format
 
         });
     });
