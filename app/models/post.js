@@ -5,5 +5,15 @@ module.exports = mongoose.model('Post', {
     snippet: String,
     author: String,
     date: String,
-    postId: String
+	image: String,
+	headingOne: String,
+	headingTwo: String,
+	contentOne: String,
+	contentTwo: String,
+	contentThree: String,
+	contentFour: String,
+	quote: String,
+	imageText: String,
+	bigTitle: String,
+	smallSubTitle: String
 });

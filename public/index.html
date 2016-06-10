@@ -16,6 +16,7 @@
 
     <!-- Custom CSS -->
     <link href="css/clean-blog.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
 
     <!-- Custom Fonts -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -64,7 +65,7 @@
                         <a href="contact.html">Contact</a>
                     </li>
                      <li>
-                        <a href="#" class="page-scroll" data-toggle="modal" data-target="#createPost">Create</a>
+                        <a href="#/jab" class="page-scroll" data-toggle="modal" data-target="#createPost">Create</a>
                     </li>
                 </ul>
             </div>
@@ -77,46 +78,97 @@
     <!-- Set your background image for this header on the line below. -->
    
 
-    <!-- Main Content -->
-
-    <div ng-view></div>
-
-
-    <!-- Modals -->
-    <!-- Create Post Modal Start -->
-    <div id="createPost" class="modal fade" role="dialog" aria-hidden="true" data-keyboard="true" data-backdrop="static" tabindex="-1">
-    <a href="#" class="fa fa-times cls-pop" data-dismiss="modal"></a>
-     <div class="modal-dialog modal-lg clearfix">
-      <div class="modal-content pop-up">
-        <h3>About US</h3>
-        <div class="clearfix">
-           <div ng-controller="CreatePostController">
-            <form ng-submit="addPost()">  
-                postId <input type="text" ng-model="postId.text">
-                            <input type="submit">
-            </form>
-            <p>{{myTxt}}</p>
-           </div>
-
-
-         <div>
-           <p>Viva Carnaval is an annual event located in the beautiful Tampa, Florida during Labor Day weekend (September 2-4 2016). It is sponsored by Out of the Night Entertainment.</p>
-           <p>Package information will be posted soon so be sure to keep checking.</p>
-           <p>Here are some reasons to attend Viva Carnaval:</p>
-        </div>
+<!-- Main Content -->
+<div ng-view></div>
+<!-- Modals -->
+<!-- Create Post Modal Start -->
+<div id="createPost" class="modal fade" role="dialog" aria-hidden="true" data-keyboard="true" data-backdrop="static" tabindex="-1">
+<a href="#" class="fa fa-times cls-pop" data-dismiss="modal"></a>
+ <div class="modal-dialog modal-lg clearfix">
+  <div class="modal-content pop-up">
+  <h3>Create Post</h3>
+   <div class="clearfix">
+    <div class="postForm" ng-controller="CreatePostController">
+     <form ng-submit="addPost()"> 
+      <div class="form-group row">
+      <label for="inputTitle" class="col-sm-2 form-control-label">Title</label>
+       <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputTitle" placeholder="Title" ng-model="post.bigTitle">
+       </div>
       </div>
-      <ul class="features">      
-        <li>Networking Opportunities</li>
-        <li>A Great Time</li>
-        <li>Community Service</li>
-        <li>Non stop Music</li>
-        <li>Sunny Beaches</li>
-        <li>Life Long Memories</li>
-      </ul>         
-     </div>
+      <div class="form-group row">
+      <label for="inputSubtitle" class="col-sm-2 form-control-label">Subtitile</label>
+       <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputSubtitle" placeholder="Subtitile" ng-model="post.smallSubTitle">
+       </div>
+      </div>
+      <div class="form-group row">
+      <label for="inputHeadingOne" class="col-sm-2 form-control-label">First Heading</label>
+       <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputHeadingOne" placeholder="First Heading" ng-model="post.headingOne">
+       </div>
+      </div>
+      <div class="form-group row">
+      <label for="inputContentOne" class="col-sm-2 form-control-label">First Content</label>
+       <div class="col-sm-10">
+        <textarea class="form-control" id="inputContentOne" rows="3" placeholder="First Content" ng-model="post.contentOne"></textarea>
+       </div>
+      </div>
+      <div class="form-group row">
+      <label for="inputContentTwo" class="col-sm-2 form-control-label">Second Content</label>
+       <div class="col-sm-10">
+        <textarea class="form-control" id="inputContentTwo" rows="3" placeholder="Second Content" ng-model="post.contentTwo"></textarea>
+       </div>
+      </div>
+      <div class="form-group row">
+      <label for="inputQuote" class="col-sm-2 form-control-label">Quote</label>
+       <div class="col-sm-10">
+        <textarea class="form-control" id="inputQuote" rows="3" placeholder="Quote" ng-model="post.quote"></textarea>
+       </div>
+      </div>
+      <div class="form-group row">
+      <label for="inputHeadingTwo" class="col-sm-2 form-control-label">Second Heading</label>
+       <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputHeadingTwo" placeholder="Second Heading" ng-model="post.headingTwo">
+       </div>
+      </div>
+      <div class="form-group row">
+      <label for="inputContentThree" class="col-sm-2 form-control-label">Third Content</label>
+       <div class="col-sm-10">
+        <textarea class="form-control" id="inputContentThree" rows="3" placeholder="Third Content" ng-model="post.contentThree"></textarea>
+       </div>
+      </div>
+      <div class="form-group row">
+      <label for="inputImage" class="col-sm-2 form-control-label">Image</label>
+       <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputImage" placeholder="Image" ng-model="post.image">
+       </div>
+      </div>
+      <div class="form-group row">
+      <label for="inputImageText" class="col-sm-2 form-control-label">Image Text</label>
+       <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputImageText" placeholder="Image Text" ng-model="post.imageText">
+       </div>
+      </div>
+      <div class="form-group row">
+      <label for="inputContentFour" class="col-sm-2 form-control-label">Fourth Content</label>
+       <div class="col-sm-10">
+        <textarea class="form-control" id="inputContentFour" rows="3" placeholder="Fourth Content" ng-model="post.contentFour"></textarea>
+       </div>
+      </div>
+      <div class="form-group row">
+       <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="postButtons btn btn-primary">Create Post</button>
+        <button type="button" class="closePostButton btn btn-default" data-dismiss="modal">Close</button>
+       </div>
+      </div>
+     </form>
     </div>
    </div>
-    <!-- Create Post Modal End -->
+  </div>
+ </div>
+</div>
+<!-- Create Post Modal End -->
 
 
 <!-- Footer -->
@@ -150,7 +202,7 @@
                             </a>
                         </li>
                     </ul>
-                    <p class="copyright text-muted">Copyright &copy; Davorin Designs Inc. 2015</p>
+                    <p class="copyright text-muted">Copyright &copy; Davorin Designs Inc. 2016</p>
                 </div>
             </div>
         </div>

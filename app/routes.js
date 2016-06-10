@@ -1,4 +1,4 @@
-var Detail = require('./models/detail');
+//var Detail = require('./models/detail');
 var Post = require('./models/post');
 
 
@@ -24,11 +24,20 @@ module.exports = function (app) {
     });
     // create post and send back all post after creation
     app.post('/api/posts', function (req, res) {
-         console.log('here');
+         console.log(req.body);
         // create a post, information comes from AJAX request from Angular
         Post.create({
-            postId: req.body.text,
-            headingOne: 'heading'
+            //postId: req.body.postId,
+            headingOne: req.body.headingOne,
+            headingTwo: req.body.headingTwo,
+            contentOne: req.body.contentOne,
+            contentTwo: req.body.contentTwo,
+            contentThree: req.body.contentThree,
+            contentFour: req.body.contentFour,
+            quote: req.body.quote,
+            image: req.body.image,
+            imageText: req.body.imageText
+
         }, function (err, post) {
             if (err)
                 res.send(err);
@@ -53,10 +62,12 @@ module.exports = function (app) {
 
     // get post detail
     app.get('/api/detail/:postId', function (req, res) {
+        console.log(req.params.postId);
         // use mongoose to get posts detail in the database
-        Detail.find({postId:req.params.postId}, function (err, results) { //for mongoose the first arg is always the error and second is the resultset..if there is an error then rs is null and vice versa
-            if (err)
+        Post.find({_id: req.params.postId}, function (err, results) { //for mongoose the first arg is always the error and second is the resultset..if there is an error then rs is null and vice versa
+            if (err) {
                 res.send(err);
+            }
             res.json(results); // return posts detail in JSON format
 
         });

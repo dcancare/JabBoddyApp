@@ -1,0 +1,149 @@
+/*About/Contact css start here*/
+/*
+.about-us a {
+    position: absolute;
+    top: 50%;
+    height: 40px;
+    width: 40px;
+    background-color: #ff3b30;
+    border-radius: 50%;
+    color: #ffffff;
+    text-align: center;
+    line-height: 40px;
+    left: 1%;
+    font-size: 22px;
+    z-index: 999;
+}
+.about-us .tooltip-inner,
+.contact-us .tooltip-inner {
+    background: none;
+    border-radius: 0;
+    color: #3e3d3d;
+    font-size: 14px;
+    text-transform: uppercase;
+    padding: 0;
+}
+.about-us .tooltip-arrow,
+.contact-us .tooltip-arrow {
+    display: none;
+}
+.contact-us a {
+    position: absolute;
+    top: 50%;
+    height: 40px;
+    width: 40px;
+    background-color: #ff3b30;
+    border-radius: 50%;
+    color: #ffffff;
+    text-align: center;
+    line-height: 40px;
+    right: 1%;
+    font-size: 22px;
+    z-index: 999;
+}
+.about-us a:hover,
+.contact-us a:hover {
+    text-decoration: none;
+}*/
+/*About/Contact css end here*/
+
+.modal {
+    background: rgba(31, 31, 31, 0.96)
+}
+.pop-up {
+    padding: 20px;
+    border-radius: 0;
+    box-shadow: none;
+    background: none;
+    border: none;
+}
+.cls-pop {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 30px;
+    line-height: 40px;
+    color: #ffffff;
+    font-weight: normal;
+    z-index: 999;
+}
+.cls-pop:hover {
+    color: #ff382e;
+    text-decoration: none;
+}
+.pop-up h3 {
+    font-size: 34px;
+    line-height: 40px;
+    margin: 0 0 60px 0;
+    padding: 0;
+    color: #ff382e;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    text-transform: uppercase;
+    position: relative;
+}
+.pop-up h3:before {
+    background-color: #ff382e;
+    bottom: -30px;
+    content: "";
+    display: block;
+    height: 1px;
+    position: absolute;
+    width: 300px;
+}
+.pop-up h3:before {
+    left: 50%;
+    margin-left: -150px;
+}
+.pop-up p {
+    margin: 10px 0;
+    padding: 0;
+    font-size: 15px;
+    line-height: 24px;
+    color: #dadada;
+}
+.pop-up-cnt {
+    text-align: center;
+}
+.pop-up-cnt i {
+    height: 40px;
+    width: 40px;
+    background-color: #ff3b30;
+    border-radius: 50%;
+    color: #ffffff;
+    line-height: 40px;
+    margin-bottom: 10px;
+}
+.pop-up-cnt h4 {
+    font-size: 22px;
+    line-height: 28px;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+}
+.pop-up-cnt .cnt-wrap {
+    padding-top: 30px;
+}
+.postForm label
+{   
+    font-size: 14px;
+    color: #fff;
+}
+.postButtons
+{
+    background-color: #ff382e;
+    color: #fff;
+    border-radius: 4px !important;
+    border-color: #ff382e; 
+}
+.closePostButton
+{
+    border-radius: 4px !important;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #c40d19;
+    border-color: #c40d19; /*set the color you want here*/
+}

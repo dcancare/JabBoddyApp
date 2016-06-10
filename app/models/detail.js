@@ -10,5 +10,6 @@ module.exports = mongoose.model('Detail', {
 	contentThree: String,
 	contentFour: String,
 	quote: String,
-	imageText: String
+	imageText: String,
+	_id: String
 });
