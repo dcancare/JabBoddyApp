@@ -1,52 +1,86 @@
-/*About/Contact css start here*/
-/*
-.about-us a {
-    position: absolute;
-    top: 50%;
-    height: 40px;
-    width: 40px;
-    background-color: #ff3b30;
-    border-radius: 50%;
-    color: #ffffff;
-    text-align: center;
-    line-height: 40px;
-    left: 1%;
-    font-size: 22px;
-    z-index: 999;
+/* Profile page */
+.card {
+    padding-top: 20px;
+    margin: 10px 0 20px 0;
+    background-color: rgba(214, 224, 226, 0.2);
+    border-top-width: 0;
+    border-bottom-width: 2px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
-.about-us .tooltip-inner,
-.contact-us .tooltip-inner {
-    background: none;
-    border-radius: 0;
-    color: #3e3d3d;
-    font-size: 14px;
-    text-transform: uppercase;
-    padding: 0;
-}
-.about-us .tooltip-arrow,
-.contact-us .tooltip-arrow {
-    display: none;
-}
-.contact-us a {
-    position: absolute;
-    top: 50%;
-    height: 40px;
-    width: 40px;
-    background-color: #ff3b30;
-    border-radius: 50%;
-    color: #ffffff;
-    text-align: center;
-    line-height: 40px;
-    right: 1%;
-    font-size: 22px;
-    z-index: 999;
-}
-.about-us a:hover,
-.contact-us a:hover {
-    text-decoration: none;
-}*/
-/*About/Contact css end here*/
 
+.card.hovercard {
+    position: relative;
+    padding-top: 0;
+    overflow: hidden;
+    text-align: center;
+    background-color: rgba(214, 224, 226, 0.4);
+}
+
+.card.hovercard .cardheader {
+    background: url("../img/profiles/background.jpg");
+    background-size: cover;
+    height: 135px;
+}
+
+.card.hovercard .avatar {
+    position: relative;
+    top: -50px;
+    margin-bottom: -50px;
+}
+
+.card.hovercard .avatar img {
+    width: 100px;
+    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 5px solid rgba(255,255,255,0.5);
+}
+
+.card.hovercard .info {
+    padding: 4px 8px 10px;
+}
+
+.card.hovercard .info .title {
+    margin-bottom: 4px;
+    font-size: 24px;
+    line-height: 1;
+    color: #262626;
+    vertical-align: middle;
+}
+
+.card.hovercard .info .desc {
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 20px;
+    color: #737373;
+    text-overflow: ellipsis;
+}
+
+.card.hovercard .bottom {
+    padding: 0 20px;
+    margin-bottom: 17px;
+}
+
+/*.cards.col-lg-3.col-sm-6{
+    width: 100%;
+}
+*/
+
+
+
+
+/*End Profile Page */
 .modal {
     background: rgba(31, 31, 31, 0.96)
 }
@@ -146,4 +180,8 @@
     color: #fff;
     background-color: #c40d19;
     border-color: #c40d19; /*set the color you want here*/
+}
+
+.darkDiv{
+    background-color: #404040; 
 }

@@ -1,5 +1,7 @@
 //var Detail = require('./models/detail');
 var Post = require('./models/post');
+var Author = require('./models/author');
+
 
 
 function getPosts(res) {
@@ -36,7 +38,14 @@ module.exports = function (app) {
             contentFour: req.body.contentFour,
             quote: req.body.quote,
             image: req.body.image,
-            imageText: req.body.imageText
+            imageText: req.body.imageText,
+            date: req.body.date,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            smallSubTitle: req.body.smallSubTitle,
+            bigTitle: req.body.bigTitle
+
+
 
         }, function (err, post) {
             if (err)
@@ -68,6 +77,19 @@ module.exports = function (app) {
             if (err) {
                 res.send(err);
             }
+            res.json(results); // return posts detail in JSON format
+
+        });
+    });
+
+    // get profile 
+    app.get('/api/profile/:author', function (req, res) {
+        // use mongoose to get posts detail in the database
+        Author.find({firstName: req.params.author}, function (err, results) { //for mongoose the first arg is always the error and second is the resultset..if there is an error then rs is null and vice versa
+            if (err) {
+                res.send(err);
+            }
+
             res.json(results); // return posts detail in JSON format
 
         });

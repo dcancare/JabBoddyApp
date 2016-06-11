@@ -1,9 +1,8 @@
 var mongoose = require('mongoose');
 
 module.exports = mongoose.model('Post', {
-    name: String,
-    snippet: String,
-    author: String,
+    firstName: String,
+    lastName: String,
     date: String,
 	image: String,
 	headingOne: String,

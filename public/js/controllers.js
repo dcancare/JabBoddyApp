@@ -26,18 +26,19 @@ jabToBodyControllers.controller('OlderPostsController', ['$scope','$http', funct
 }]);
 
 jabToBodyControllers.controller('CreatePostController', ['$scope','$http', 'Post', function($scope,$http,Post){
-
 	$scope.addPost = function(){
+		console.log("adding post");
+
 			Post.create($scope.post).success(function(data) {
 						$scope.posts = data; // assign our new list of posts ///////this wont work 
 					});
 	}
 }]);
 
-jabToBodyControllers.controller('EditorController', ['$scope','$http', 'Post', function($scope,$http,Post){
-  //$http.get('/api/posts').success(function(data){ // can use this or the one thats getting used below 
-  Post.get().success(function(data) {
-  $scope.posts = data;
+jabToBodyControllers.controller('EditorController', ['$scope','$http', '$routeParams', 'Post', function($scope,$http,$routeParams,Post){
+  var parameterAuthor = $routeParams.author;
+  Post.fetchProfile(parameterAuthor).success(function(data) {
+  $scope.profileData = data[0];
   })
 }]);
 

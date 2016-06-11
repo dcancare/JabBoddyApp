@@ -25,6 +25,10 @@ var jabToBodyServices = angular.module('jabToBodyServices', [])
 			},
 			fetchDetail : function(id) {
 				return $http.get('/api/detail/' + id);
+			},
+			fetchProfile : function(author) {
+				return $http.get('/api/profile/' + author);
 			}
+
 		}
 	}]);
