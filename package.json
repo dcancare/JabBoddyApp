@@ -4,7 +4,7 @@
   "name": "angular-project",
   "description": "Jab to the Body Blog",
   "license": "Davorin Cancarevic",
-  "devDependencies": {
+  "dependencies": {
     "body-parser": "^1.4.3",
     "express": "^4.13.4",
     "method-override": "^2.1.3",
