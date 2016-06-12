@@ -1,9 +1,13 @@
 var jabToBodyControllers = angular.module('jabToBodyControllers', []);
 
-jabToBodyControllers.controller('MainController', ['$scope','$http', 'Post', function($scope,$http,Post){
+jabToBodyControllers.controller('MainController', ['$scope','$http','$rootScope', 'Post', function($scope,$http,$rootScope,Post){
   //$http.get('/api/posts').success(function(data){ // can use this or the one thats getting used below 
   Post.get().success(function(data) {
   $scope.posts = data;
+  })
+  Post.validateUser().success(function(data) {
+  $rootScope.userSession = data;
+  console.log($rootScope.userSession);
   })
 }]);
 
@@ -41,4 +45,3 @@ jabToBodyControllers.controller('EditorController', ['$scope','$http', '$routePa
   $scope.profileData = data[0];
   })
 }]);
-

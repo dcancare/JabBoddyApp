@@ -28,6 +28,9 @@ var jabToBodyServices = angular.module('jabToBodyServices', [])
 			},
 			fetchProfile : function(author) {
 				return $http.get('/api/profile/' + author);
+			},
+			validateUser : function() {
+				return $http.get('/sessionValidation');
 			}
 
 		}
