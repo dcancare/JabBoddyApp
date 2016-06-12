@@ -21,11 +21,11 @@
     padding-top: 0;
     overflow: hidden;
     text-align: center;
-    background-color: rgba(214, 224, 226, 0.4);
+    background-color: rgba(214, 224, 226, 0.3);
 }
 
 .card.hovercard .cardheader {
-    background: url("../img/profiles/background.jpg");
+    background: url("../img/background-images/Elegant_Background-14.jpg");
     background-size: cover;
     height: 135px;
 }
@@ -48,7 +48,7 @@
 }
 
 .card.hovercard .info {
-    padding: 4px 8px 10px;
+    padding: 20px 8px 10px;
 }
 
 .card.hovercard .info .title {
@@ -68,7 +68,7 @@
 }
 
 .card.hovercard .bottom {
-    padding: 0 20px;
+    padding: 0 200px;
     margin-bottom: 17px;
 }
 
@@ -176,10 +176,11 @@
     border-radius: 4px !important;
 }
 
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+.btn-primary, .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
     color: #fff;
     background-color: #c40d19;
     border-color: #c40d19; /*set the color you want here*/
+    border-radius: 4px !important;
 }
 
 .darkDiv{
