@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 
-module.exports = mongoose.model('Post', {
+var PostSchema = new mongoose.Schema(
+{
     firstName: String,
     lastName: String,
     date: String,
@@ -14,5 +15,10 @@ module.exports = mongoose.model('Post', {
 	quote: String,
 	imageText: String,
 	bigTitle: String,
-	smallSubTitle: String
+	smallSubTitle: String,
+},
+{
+    timestamps: true
 });
+
+module.exports = mongoose.model('Post', PostSchema);
