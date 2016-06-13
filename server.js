@@ -6,7 +6,7 @@
     var bodyParser = require('body-parser');    // pull information from HTML POST (express4)
     var path = require('path');
     //var port = process.env.PORT || 8080;                // set the port
-    var port = process.env.PORT || 8080;              // set the port
+    var port = process.env.PORT || 80;              // set the port
 
     var passport = require('passport');
     var flash    = require('connect-flash');
