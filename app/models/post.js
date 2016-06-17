@@ -16,6 +16,12 @@ var PostSchema = new mongoose.Schema(
 	imageText: String,
 	bigTitle: String,
 	smallSubTitle: String,
+	questionArray:[
+		{
+			question: String,
+			answer: String
+		}
+	]
 },
 {
     timestamps: true

@@ -43,8 +43,8 @@ module.exports = function (app, passport) {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             smallSubTitle: req.body.smallSubTitle,
-            bigTitle: req.body.bigTitle
-
+            bigTitle: req.body.bigTitle,
+            questionArray: req.body.questionArray
 
         }, function (err, post) {
             if (err)

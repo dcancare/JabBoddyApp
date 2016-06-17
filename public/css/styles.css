@@ -166,23 +166,32 @@
 }
 .postButtons
 {
-    background-color: #ff382e;
-    color: #fff;
+    background-color: #ff382e !important;
+    color: #fff !important;
     border-radius: 4px !important;
-    border-color: #ff382e; 
+    border-color: #ff382e !important; 
 }
+
+.postButtons:hover, .postButtons:focus
+{
+    background-color: #c40d19 !important;
+    color: #fff !important;
+    border-radius: 4px !important;
+    border-color: #c40d19 !important; 
+}
+
 .closePostButton
 {
     border-radius: 4px !important;
 }
 
-.btn-primary, .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
-    color: #fff;
-    background-color: #c40d19;
-    border-color: #c40d19; /*set the color you want here*/
-    border-radius: 4px !important;
-}
-
 .darkDiv{
     background-color: #404040; 
+}
+
+.small-button {
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
 }

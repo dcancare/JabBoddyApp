@@ -8,18 +8,18 @@
  <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-preview" ng-repeat="post in posts">
-     					<a href="#/postDetails/{{post._id}}">
-     					  <h2 class="post-title">
+                <div class="post-preview" ng-repeat="post in posts | orderBy: '-createdAt'">
+                  <i class="fa fa-times" ng-click="deletePost(post._id)"></i>
+     					    <a href="#/postDetails/{{post._id}}">
+     					      <h2 class="post-title">
                              {{post.bigTitle}}
                           </h2>
                           <h3 class="post-subtitle">
                              {{post.smallSubTitle}}
                           </h3>
-     					</a>
-                    <p class="post-meta">Posted by <a href="#/editor/{{post.firstName}}">{{post.firstName}} {{post.lastName}}</a> on {{post.date}}</p>
-                <hr>
-                </div>
+     					  </a>
+                <p class="post-meta">Posted by <a href="#/editor/{{post.firstName}}">{{post.firstName}} {{post.lastName}}</a> on {{post.date}}</p>
+              </div>
             </div>
         </div>
  </div>

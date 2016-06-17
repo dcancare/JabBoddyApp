@@ -27,8 +27,10 @@
 
                     <p>{{post.contentTwo}}</p>
 
-
-                    <blockquote>{{post.quote}}</blockquote>
+                    <div class="post-preview" ng-repeat="post in post.questionArray">
+                        {{post.question}}
+                        <blockquote>{{post.answer}}</blockquote>
+                    </div>
 
                     <p></p>
 
