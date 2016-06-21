@@ -7,9 +7,10 @@ jabToBodyControllers.controller('MainController', ['$scope','$http','$rootScope'
   })
   Post.validateUser().success(function(data) {
   //$rootScope.userSession = data;
-    $rootScope.userSession = true;
+    $rootScope.userSession = false;
+  
+  console.log("User logged in: " + $rootScope.userSession);
 
-  console.log($rootScope.userSession);
   })
 }]);
 
@@ -18,7 +19,7 @@ jabToBodyControllers.controller('MainController', ['$scope','$http','$rootScope'
 //   })
 // }]);
 
-jabToBodyControllers.controller('PostDetailsController', ['$scope','$http', '$routeParams', 'Post', function($scope,$http,$routeParams,Post){
+jabToBodyControllers.controller('PostDetailsController', ['$scope','$http','$routeParams', 'Post', function($scope,$http,$routeParams,Post){
    var parameterPostId = $routeParams.postId;
    Post.fetchDetail(parameterPostId).success(function(data) {
     $scope.post = data[0];
@@ -26,7 +27,7 @@ jabToBodyControllers.controller('PostDetailsController', ['$scope','$http', '$ro
    })
 }]);
 
-jabToBodyControllers.controller('OlderPostsController', ['$scope','$http', 'Post', function($scope,$http,Post){
+jabToBodyControllers.controller('OlderPostsController', ['$scope','$http', '$rootScope','Post', function($scope,$http,$rootScope,Post){
    $scope.deletePost = function(id){
       Post.delete(id).success(function(data) {
         $scope.posts = data;

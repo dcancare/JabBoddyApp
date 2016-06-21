@@ -16,10 +16,10 @@ jabToBodyApp.config(['$routeProvider',
 		 	templateUrl: 'olderPosts.html',
 		 	controller: 'OlderPostsController'
 		 }).
-		  when('/editor/:author', {
-		 	templateUrl: 'editor.html',
-		 	controller: 'EditorController'
-		 }).
+		 //  when('/editor/:author', {
+		 // 	templateUrl: 'editor.html',
+		 // 	controller: 'EditorController'
+		 // }).
 		 otherwise({
 		 	redirectTo: '/jab'
 		 });
