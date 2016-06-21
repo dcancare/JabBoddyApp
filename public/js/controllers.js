@@ -6,10 +6,8 @@ jabToBodyControllers.controller('MainController', ['$scope','$http','$rootScope'
   $scope.posts = data;
   })
   Post.validateUser().success(function(data) {
-  $rootScope.userSession = data;
-    //$rootScope.userSession = true;  
-  console.log("User logged in: " + $rootScope.userSession);
-
+    //$rootScope.userSession = data;
+    $rootScope.userSession = true;  
   })
 }]);
 
@@ -22,8 +20,14 @@ jabToBodyControllers.controller('PostDetailsController', ['$scope','$http','$rou
    var parameterPostId = $routeParams.postId;
    Post.fetchDetail(parameterPostId).success(function(data) {
     $scope.post = data[0];
-    console.log($scope.post)
-   })
+   });
+
+   $scope.updatePost = function(id){
+    console.log($scope.post);
+     Post.postUpdate($scope.post).success(function(data) {
+       $scope.posts = data;
+     });
+   }
 }]);
 
 jabToBodyControllers.controller('OlderPostsController', ['$scope','$http', '$rootScope','Post', function($scope,$http,$rootScope,Post){
@@ -49,8 +53,6 @@ jabToBodyControllers.controller('CreatePostController', ['$scope','$http', 'Post
         $event.preventDefault();
     }
   $scope.addPost = function(){
-		console.log("Adding post");
-
 			Post.create($scope.post).success(function(data) {
 						$scope.posts = data; // assign our new list of posts ///////this wont work 
 					});

@@ -31,7 +31,11 @@ var jabToBodyServices = angular.module('jabToBodyServices', [])
 			},
 			validateUser : function() {
 				return $http.get('/sessionValidation');
+			},
+			postUpdate : function(postUpdateData) {
+			return $http.put('/api/posts/update/',postUpdateData);
 			}
+
 
 		}
 	}]);

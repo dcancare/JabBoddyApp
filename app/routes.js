@@ -52,6 +52,34 @@ module.exports = function (app, passport) {
 
     });
 
+    // update post 
+    app.put('/api/posts/update/', function (req, res) {
+         console.log("updattttttte" + req.body);
+        // create a post, information comes from AJAX request from Angular
+        Post.update({ _id: req.body._id,
+            //postId: req.body.postId,
+            headingOne: req.body.headingOne,
+            headingTwo: req.body.headingTwo,
+            contentOne: req.body.contentOne,
+            contentTwo: req.body.contentTwo,
+            contentThree: req.body.contentThree,
+            contentFour: req.body.contentFour,
+            image: req.body.image,
+            imageText: req.body.imageText,
+            smallSubTitle: req.body.smallSubTitle,
+            bigTitle: req.body.bigTitle,
+            questionArray: req.body.questionArray
+
+         }, function (err, post) {
+            if (err)
+                res.send(err);
+
+            // get and return all the posts after you create another
+            getPosts(res);
+        });
+
+    });
+
     // delete a post
     app.delete('/api/posts/:post_id', function (req, res) {
         Post.remove({

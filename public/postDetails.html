@@ -9,7 +9,7 @@
                     <div class="post-heading">
                         <h1>{{post.bigTitle}}</h1>
                         <h2 class="subheading">{{post.smallSubTitle}}</h2>
-                        <span class="meta">Posted by <a href="#/editor/{{post.firstName}}">{{userSession.local.firstName}} {{userSession.local.lastName}}</a> {{post.date | date:'yyyy-MM-dd'}}</span>
+                        <span class="meta">Posted by <!-- <a href="#/editor/{{post.firstName}}"> -->{{userSession.local.firstName}} {{userSession.local.lastName}}<!-- </a> --> {{post.date | date:'yyyy-MM-dd'}}</span>
                     </div>
                 </div>
             </div>
@@ -20,29 +20,42 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <h2 class="section-heading">{{post.headingOne}}</h2>
+                    <h2 class="section-heading" ng-show="!userSession">{{post.headingOne}}</h2>
+                    <h2 class="section-heading"><input type="text" ng-show="userSession" ng-readonly="!userSession" ng-model="post.headingOne" aria-label="Readonly field" placeholder="Heading" /></h2>
 
-                    <p>{{post.contentOne}}</p>
+
+                    <p ng-show="!userSession">{{post.contentOne}}</p>
+                    <p><input type="text" ng-show="userSession" ng-readonly="!userSession" ng-model="post.contentOne" aria-label="Readonly field" placeholder="Content"/></p>
+
+                    <p ng-show="!userSession">{{post.contentTwo}}</p>
+                    <p><input type="text" ng-show="userSession" ng-readonly="!userSession" ng-model="post.contentTwo" aria-label="Readonly field" placeholder="Content"/></p>
 
 
-                    <p>{{post.contentTwo}}</p>
-
-                    <div class="post-preview" ng-repeat="post in post.questionArray">
+                    <div ng-show="!userSession"class="post-preview" ng-repeat="post in post.questionArray">
                         {{post.question}}
-                        <blockquote>{{post.answer}}</blockquote>
+                        <blockquote>{{post.answer}}</blockquote>  
                     </div>
 
-                    <p></p>
+                    <div class="post-preview" ng-repeat="post in post.questionArray">
+                       <input type="text" ng-show="userSession" ng-readonly="!userSession" ng-model="post.question" aria-label="Readonly field" placeholder="Question"/>
+                       <input type="text" ng-show="userSession" ng-readonly="!userSession" ng-model="post.answer" aria-label="Readonly field" placeholder="Answer"/>
+                    </div>
 
-                    <h2 class="section-heading">{{post.headingTwo}}</h2>
+                    <h2 ng-show="!userSession" class="section-heading">{{post.headingTwo}}</h2>
+                    <h2 class="section-heading"><input type="text" ng-show="userSession" ng-readonly="!userSession" ng-model="post.headingTwo" aria-label="Readonly field" placeholder="Heading" /></h2>
 
-                    <p>{{post.contentThree}}</p>
+                    <p ng-show="!userSession">{{post.contentThree}}</p>
+                    <p><input type="text" ng-show="userSession" ng-readonly="!userSession" ng-model="post.contentThree" aria-label="Readonly field" placeholder="Content"/></p>
+
 
                     <img class="img-responsive" src="img/posts/{{post.image}}" alt="">
                     <span class="caption text-muted">{{post.imageText}}</span>
 
-                    <p>{{post.contentFour}}</p>
-                   
+                    <p ng-show="!userSession">{{post.contentFour}}</p>
+                    <p><input type="text" ng-show="userSession" ng-readonly="!userSession" ng-model="post.contentFour" aria-label="Readonly field" placeholder="Content"/></p>
+
+                    <button type="submit" class="btn btn-primary" ng-click="updatePost(post._id)">Save</button>
+
                 </div>
             </div>
         </div>
