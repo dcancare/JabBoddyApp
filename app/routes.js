@@ -36,12 +36,8 @@ module.exports = function (app, passport) {
             contentTwo: req.body.contentTwo,
             contentThree: req.body.contentThree,
             contentFour: req.body.contentFour,
-            quote: req.body.quote,
             image: req.body.image,
             imageText: req.body.imageText,
-            date: req.body.date,
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
             smallSubTitle: req.body.smallSubTitle,
             bigTitle: req.body.bigTitle,
             questionArray: req.body.questionArray
@@ -117,18 +113,17 @@ module.exports = function (app, passport) {
     // SIGNUP ==============================
     // =====================================
     // show the signup form
-   // app.get('/signup', function(req, res) {
+    app.get('/signup', function(req, res) {
         // render the page and pass in any flash data if it exists
-   //     res.render('signup.ejs', { message: req.flash('signupMessage') });
-   // });
+        res.render('signup.ejs', { message: req.flash('signupMessage') });
+    });
 
     // process the signup form
-       // process the signup form
-    //app.post('/signup', passport.authenticate('local-signup', {
-    //    successRedirect : '/profile', // redirect to the secure profile section
-     //   failureRedirect : '/signup', // redirect back to the signup page if there is an error
-    //    failureFlash : true // allow flash messages
-    //}));
+    app.post('/signup', passport.authenticate('local-signup', {
+        successRedirect : '/profile', // redirect to the secure profile section
+        failureRedirect : '/signup', // redirect back to the signup page if there is an error
+        failureFlash : true // allow flash messages
+    }));
 
     // =====================================
     // PROFILE SECTION =====================

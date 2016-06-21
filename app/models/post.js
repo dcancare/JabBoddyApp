@@ -2,9 +2,6 @@ var mongoose = require('mongoose');
 
 var PostSchema = new mongoose.Schema(
 {
-    firstName: String,
-    lastName: String,
-    date: String,
 	image: String,
 	headingOne: String,
 	headingTwo: String,
@@ -12,7 +9,6 @@ var PostSchema = new mongoose.Schema(
 	contentTwo: String,
 	contentThree: String,
 	contentFour: String,
-	quote: String,
 	imageText: String,
 	bigTitle: String,
 	smallSubTitle: String,

@@ -6,9 +6,8 @@ jabToBodyControllers.controller('MainController', ['$scope','$http','$rootScope'
   $scope.posts = data;
   })
   Post.validateUser().success(function(data) {
-  //$rootScope.userSession = data;
-    $rootScope.userSession = false;
-  
+  $rootScope.userSession = data;
+    //$rootScope.userSession = true;  
   console.log("User logged in: " + $rootScope.userSession);
 
   })
@@ -41,7 +40,8 @@ jabToBodyControllers.controller('OlderPostsController', ['$scope','$http', '$roo
 
 jabToBodyControllers.controller('CreatePostController', ['$scope','$http', 'Post', function($scope,$http,Post){
   $scope.post = {
-        questionArray : [{}]
+        questionArray : [{}],
+        date : new Date()
   };
  //$scope.questionArray = [{question :'', answer :''}]; 
  $scope.newItem = function($event){                                                  
