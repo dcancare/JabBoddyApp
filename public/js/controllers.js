@@ -6,8 +6,8 @@ jabToBodyControllers.controller('MainController', ['$scope','$http','$rootScope'
   $scope.posts = data;
   })
   Post.validateUser().success(function(data) {
-    //$rootScope.userSession = data;
-    $rootScope.userSession = true;  
+    $rootScope.userSession = data;
+    //$rootScope.userSession = true;  
   })
 }]);
 
@@ -16,7 +16,9 @@ jabToBodyControllers.controller('MainController', ['$scope','$http','$rootScope'
 //   })
 // }]);
 
-jabToBodyControllers.controller('PostDetailsController', ['$scope','$http','$routeParams', 'Post', function($scope,$http,$routeParams,Post){
+jabToBodyControllers.controller('PostDetailsController', ['$scope','$http','$routeParams', '$rootScope', 'Post', function($scope,$http,$routeParams,$rootScope,Post){
+   $scope.editMode = false;
+
    var parameterPostId = $routeParams.postId;
    Post.fetchDetail(parameterPostId).success(function(data) {
     $scope.post = data[0];
@@ -25,9 +27,29 @@ jabToBodyControllers.controller('PostDetailsController', ['$scope','$http','$rou
    $scope.updatePost = function(id){
     console.log($scope.post);
      Post.postUpdate($scope.post).success(function(data) {
-       $scope.posts = data;
+      //$scope.post = data[0];
      });
    }
+
+   $scope.editModeCheck = function(){
+    if($scope.editMode)
+      {
+        $scope.editMode = false;
+      }
+      else
+      {
+        $scope.editMode = true;
+      }
+   }
+     
+  $scope.showEditButton = function() {
+     return (!$scope.editMode  && $rootScope.userSession)
+ }
+
+  $scope.showSubmitCancel = function() {
+     return ($scope.editMode  && $rootScope.userSession)
+ }
+
 }]);
 
 jabToBodyControllers.controller('OlderPostsController', ['$scope','$http', '$rootScope','Post', function($scope,$http,$rootScope,Post){
@@ -54,7 +76,7 @@ jabToBodyControllers.controller('CreatePostController', ['$scope','$http', 'Post
     }
   $scope.addPost = function(){
 			Post.create($scope.post).success(function(data) {
-						$scope.posts = data; // assign our new list of posts ///////this wont work 
+						//$scope.posts = data; // assign our new list of posts ///////this wont work 
 					});
 	}
 }]);

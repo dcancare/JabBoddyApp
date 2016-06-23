@@ -5,8 +5,8 @@
     var morgan = require('morgan');             // log requests to the console (express4)
     var bodyParser = require('body-parser');    // pull information from HTML POST (express4)
     var path = require('path');
-    var port = process.env.PORT || 8080;                // set the port
-    //var port = process.env.PORT || 80;              // set the port
+    //var port = process.env.PORT || 8080;                // set the port
+    var port = process.env.PORT || 80;              // set the port
 
     var passport = require('passport');
     var flash    = require('connect-flash');
@@ -21,7 +21,10 @@
 
     //mongoose.connect('mongodb://localhost/Jab');     // connect to mongoDB database on modulus.io
     //mongoose.connect('mongodb://localhost/sandbox');     // connect to mongoDB database on modulus.io
-    mongoose.connect('mongodb://admin:admin@ds045001.mlab.com:45001/jab');
+    //mongoose.connect('mongodb://admsin:admisn@ds045001.mlab.com:45001/jab'); //working mongo to mlab
+    mongoose.connect('mongodb://admin:admin@ec2-52-40-177-77.us-west-2.compute.amazonaws.com:27017/jab', function(err) {
+        if (err) throw err;
+    });//connect mongo to aws instance
     
     require('./config/passport')(passport); // pass passport for configuration
 

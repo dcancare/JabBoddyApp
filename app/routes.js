@@ -40,7 +40,8 @@ module.exports = function (app, passport) {
             imageText: req.body.imageText,
             smallSubTitle: req.body.smallSubTitle,
             bigTitle: req.body.bigTitle,
-            questionArray: req.body.questionArray
+            questionArray: req.body.questionArray,
+            date: req.body.date
 
         }, function (err, post) {
             if (err)
@@ -54,7 +55,7 @@ module.exports = function (app, passport) {
 
     // update post 
     app.put('/api/posts/update/', function (req, res) {
-         console.log("updattttttte" + req.body);
+         console.log("update" + req.body);
         // create a post, information comes from AJAX request from Angular
         Post.update({ _id: req.body._id,
             //postId: req.body.postId,
@@ -141,17 +142,17 @@ module.exports = function (app, passport) {
     // SIGNUP ==============================
     // =====================================
     // show the signup form
-    app.get('/signup', function(req, res) {
+  //  app.get('/signup', function(req, res) {
         // render the page and pass in any flash data if it exists
-        res.render('signup.ejs', { message: req.flash('signupMessage') });
-    });
+  //      res.render('signup.ejs', { message: req.flash('signupMessage') });
+  //  });
 
     // process the signup form
-    app.post('/signup', passport.authenticate('local-signup', {
-        successRedirect : '/profile', // redirect to the secure profile section
-        failureRedirect : '/signup', // redirect back to the signup page if there is an error
-        failureFlash : true // allow flash messages
-    }));
+   // app.post('/signup', passport.authenticate('local-signup', {
+   //     successRedirect : '/profile', // redirect to the secure profile section
+   //     failureRedirect : '/signup', // redirect back to the signup page if there is an error
+   //     failureFlash : true // allow flash messages
+   // }));
 
     // =====================================
     // PROFILE SECTION =====================
