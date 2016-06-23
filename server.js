@@ -19,12 +19,7 @@
 
     // configuration =================
 
-    //mongoose.connect('mongodb://localhost/Jab');     // connect to mongoDB database on modulus.io
-    //mongoose.connect('mongodb://localhost/sandbox');     // connect to mongoDB database on modulus.io
-    //mongoose.connect('mongodb://admsin:admisn@ds045001.mlab.com:45001/jab'); //working mongo to mlab
-    mongoose.connect('mongodb://admin:admin@ec2-52-40-177-77.us-west-2.compute.amazonaws.com:27017/jab', function(err) {
-        if (err) throw err;
-    });//connect mongo to aws instance
+    
     
     require('./config/passport')(passport); // pass passport for configuration
 
